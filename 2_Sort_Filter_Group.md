@@ -1,10 +1,9 @@
 # 2 Sort Filter Group
 
-PowerShell kan data uit verschillende bronnen ophalen en manipuleren. In deze module leer je:
-- Sort-Object: sorteren van data op een bepaalde eigenschap.
-- Where-Object: filteren op specifieke criteria.
-- Group-Object: groeperen van data om patronen of totalen te zien.
-Praktisch voorbeeld: Een lijst van auto's sorteren op kenteken, filteren op vermogen en groeperen op bouwjaar.
+PowerShell can retrieve and manipulate data from various sources. In this module, you will learn:
+- Sort-Object: sorting data by a specific property.
+- Where-Object: filtering by specific criteria.
+- Group-Object: grouping data to see patterns or totals.
 
 # PowerShell pipeline basics
 

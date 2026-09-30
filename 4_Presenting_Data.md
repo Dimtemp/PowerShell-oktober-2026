@@ -1,9 +1,10 @@
-# 5 Presenting Data
+# 4 Presenting Data
 
-Het gaat niet alleen om data ophalen, maar ook om het presenteren:
-- Gebruik van **Format-Table** en **Format-List**.
-- Exporteren naar HTML voor rapportages.
-Doel: Data overzichtelijk en bruikbaar maken voor eindgebruikers of rapportages.
+It is not just about retrieving data, but also about presenting it:
+- Using Format-Table and Format-List.
+- Exporting to HTML for reports.
+
+Goal: Making data clear and usable for end users or reporting.
 
 # Formatting output, not disks
 

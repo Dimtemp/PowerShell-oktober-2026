@@ -1,12 +1,12 @@
 # 3 Import Export
 
-PowerShell ondersteunt het werken met verschillende bestandsformaten:
-- Import-Csv / Export-Csv: voor tabulaire data en uitwisseling met Excel.
-- ConvertTo-Json / ConvertFrom-Json: voor API-data.
-- Import-Clixml / Export-Clixml: voor interactie met financiële systemen.
-- Get-Content / Out-File: voor tekstbestanden.
-Waarom belangrijk? Dit maakt het eenvoudig om data uit systemen te halen, te bewerken en weer terug te zetten.
+PowerShell supports working with various file formats:
+- Import-Csv / Export-Csv: for tabular data and exchanging with Excel.
+- ConvertTo-Json / ConvertFrom-Json: for API data.
+- Import-Clixml / Export-Clixml: for interacting with financial systems.
+- Get-Content / Out-File: for text files.
 
+Why is this important? It makes it easy to extract data from systems, modify it, and write it back.
 
 ## Task: basic file processing
 1. Open a new PowerShell console.

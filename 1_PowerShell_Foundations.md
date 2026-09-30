@@ -1,9 +1,9 @@
 # 1 PowerShell Foundations
 
-Dit is de basis van PowerShell, een krachtige command-line tool en scriptingtaal van Microsoft. Je leert:
-- Hoe je cmdlets (PowerShell-commando’s) gebruikt.
-- Hoe je basiscommando's gebruikt zoals Get-Help en Get-Command
-Doel: Begrijpen hoe PowerShell werkt en hoe je het kunt inzetten om repetitieve taken te automatiseren.
+This is the foundation of PowerShell, a powerful command-line tool and scripting language from Microsoft. You will learn:
+- How to use cmdlets (PowerShell commands).
+- How to use basic commands like Get-Help and Get-Command.
+Goal: Understand how PowerShell works and how you can use it to automate repetitive tasks.
 
 
 ## Task: Start PowerShell
