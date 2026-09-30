@@ -25,9 +25,7 @@ Note: as with most PowerShell exercises, it's best not to copy-paste the command
 
 
 # Filtering with and without Where-Object
-In this chapter we're going to filter output. This is normally done using operators. Some of them you already know: < > =.
-
-Note: as with most PowerShell exercises, it's best not to copy-paste the command's, but to actually type them. Use keyboard navigation (arrow up/down, home, end) to speed up entering commands in PowerShell.
+In this section we're going to filter output.
 
 ## Task: basic filtering
 1. Run this command: ```Get-Help operators```
@@ -62,6 +60,7 @@ Note: as with most PowerShell exercises, it's best not to copy-paste the command
 
 ## Task: match that
 PowerShell has an extremely **PowerFull** pattern matching mechanism: regular expressions. Originating not earlier than **1951**, it's a wonderfull way to describe patterns in input and output.
+
 1. Run this command to list all processes that have **sh** in their names: ```Get-Process | Where-Object ProcessName -match sh```
 1. Notice that we're not using any wildcards, like * or ?.
 1. Note: if you don't get any output, try to use another text until you get a (preferred small) result.
@@ -96,28 +95,6 @@ The Where-Object has a major advantage: all PowerShell output can be filtered. I
 1. Run this command: ```Get-Service | Group-Object Status```
 1. This will group all services by Status. Notice that most services are either running or stopped.
 1. The Count column specifies the number of services with a specific status. The Name column does not refer to the service name, but to the name of the status. Most will be Stopped or Started. The Group column contains all services with a specific status. The curly brackets { } indicate it's a collection of objects.
-
-
-## If time permits
-
-## Task: Measuring
-1. Open a PowerShell console.
-1. Run this command: ```Get-Command```
-1. This will display a listing of all commands in PowerShell.
-1. Run this command: ```Get-Command | Measure-Object```
-1. This command measures the number of command's in PowerShell. Notice the total number of commands.
-1. Run this command: ```Get-Command -verb stop```
-1. This will display a listing of all commands in PowerShell that have a verb of **stop**.
-1. Run this command: ```Get-Command -verb stop | Measure-Object```
-1. This command measures the number of command's in PowerShell that have a verb of **stop**. Notice the total number of commands.
-1. Run this command: ```Get-Process```
-1. This will display a process listing.
-1. Run this command: ```Get-Process | Measure-Object```
-1. This command measures the number of processes.
-1. Run this command: ```Get-Process w*```
-1. This command displays a list of processes with a name that starts with **w**. Count the number of processes.
-1. Run this command: ```Get-Process w* | Measure-Object```
-1. This command measures the number of processes with a name that starts with **w**. Verify that the number is correct.
 
 
 # The many faces of Select-Object
@@ -165,3 +142,27 @@ Note: as with most PowerShell exercises, it's best not to copy-paste the command
 A famous paradigm in PowerShell is: **filter left, format right**. This means you should filter output as soon as possible. At the source, when available. Filtering using Where-Object is flexbile, but also more costly in terms of processing time and/or network transfers.
 
 Formatting is done on the right. To be precise: in the last part of your PowerShell command. This will be discussed in a later chapter.
+
+
+## If time permits
+
+## Task: Measuring
+1. Open a PowerShell console.
+1. Run this command: ```Get-Command```
+1. This will display a listing of all commands in PowerShell.
+1. Run this command: ```Get-Command | Measure-Object```
+1. This command measures the number of command's in PowerShell. Notice the total number of commands.
+1. Run this command: ```Get-Command -verb stop```
+1. This will display a listing of all commands in PowerShell that have a verb of **stop**.
+1. Run this command: ```Get-Command -verb stop | Measure-Object```
+1. This command measures the number of command's in PowerShell that have a verb of **stop**. Notice the total number of commands.
+1. Run this command: ```Get-Process```
+1. This will display a process listing.
+1. Run this command: ```Get-Process | Measure-Object```
+1. This command measures the number of processes.
+1. Run this command: ```Get-Process w*```
+1. This command displays a list of processes with a name that starts with **w**. Count the number of processes.
+1. Run this command: ```Get-Process w* | Measure-Object```
+1. This command measures the number of processes with a name that starts with **w**. Verify that the number is correct.
+
+

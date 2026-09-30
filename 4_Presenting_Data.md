@@ -29,28 +29,22 @@ Doel: Data overzichtelijk en bruikbaar maken voor eindgebruikers of rapportages.
 You can convert any table into a list, or any list into a table. Beware that you cannot sort on (or process) output as soon as you format the output as a list or a table. That's why all Format commands should be on the righthand side.
 
 
-## Task: writing to the screen
-1. Run this command: ```Write-Host 'Goodmorning'```
-1. This writes Goodmorning to the screen.
-1. Run this command: ```Write-Host 'Goodmorning' -ForeGroundColor red```
-1. Notice the red color.
-1. Run this command: ```Write-Host 'Goodmorning' -ForegroundColor red -BackgroundColor black```
-1. Using Write-Host you can write to the screen, and set colors to do so.
-1. Run this command: ```Write-Host 'Goodmorning' -ForegroundColor red -BackgroundColor black | Out-File test.txt```
-1. Please make sure you have write-access to the current folder. If not, just restart PowerShell. It will start in a folder with write access.
-1. Notice the output on the screen from the last Write-Host command. Powershell writes the output to the screen, and not in the file.
-1. List the file with this command: ```Get-ChildItem test.txt```
-1. Open the file with notepad: ```notepad test.txt```
-1. Notice the file is empty. This is because Write-Host is writing to the hosting environment, which is the console window.
-1. Run this command: ```'Goodmorning'```
-1. Notice we're not relying on Write-Host to write Goodmorning to the screen. We're just generating a (text) string, that's is displayed on screen by default.
-1. Run this command: ```'Goodmorning' | Out-File test.txt```
-1. Notice the lack of output on the screen.
-1. Now inspect the file with this command: ```Get-ChildItem test.txt```
-1. Open the file with notepad: ```notepad test.txt```
-1. Notice Goodmorning is written to the text file.
-1. Writing to files is discussed more in-depth in a later chapter.
+## Task: HTML files
+1. Run this command to display a list of running processes, that show only the working set (WS), Id and process name, sorted by working set: ```Get-Process | Sort-Object WS | Select-Object WS, Id, ProcessName -First 10```
+1. To convert the process list to an HTML page, run this command: ```Get-Process | Sort-Object WS | Select-Object WS, Id, ProcessName -First 10 | ConvertTo-HTML```
+1. The HTML output is displayed in the PowerShell console window. That's not what we want.
+1. To save the HTML page to a file, run: ```Get-Process | Sort-Object WS | Select-Object WS, Id, ProcessName -First 10 | ConvertTo-HTML | Out-File Report.html```
+1. To view the HTML file, run: ```Invoke-Item Report.html```
+1. If this doesn't work, navigate to the file with Windows Explorer and double click it.
+1. To create another HTML file, run: ```Get-Process | Sort-Object WS | Select-Object WS, Id, ProcessName -First 10 | ConvertTo-HTML –PreContent 'Biggest Processes by working set' –PostContent (Get-Date) | Out-File Report.html```
+1. To view the HTML file, run: ```Invoke-Item Report.html```
 
+
+## Filter left, format right
+Remember the PowerShell paradigm from the previous lesson? **Filter left, format right.** Filter output as soon as possible. And format output at the last possible moment. As soon data has been formatted for output, you're likely losing context or metadata. It's harder to reprocess the data after that. So make sure the output is meant for human readability, and nothing more.
+
+
+# If time permits
 
 ## Task: Format operator
 The format operator can do some advanced formatting. It's used regularly to make things more human readable.
@@ -89,22 +83,3 @@ The first character starts at 0. This command displays the first two characters:
 1. Should return false.
 1. Run this command: ```'Greetings'.PadLeft(15)```
 1. The left of the output is padded with spaces so the total length will be 15.
-
-
-## Filter left, format right
-Remember the PowerShell paradigm from the previous lesson? **Filter left, format right.** Filter output as soon as possible. And format output at the last possible moment. As soon data has been formatted for output, you're likely losing context or metadata. It's harder to reprocess the data after that. So make sure the output is meant for human readability, and nothing more.
-
-
-## 504-html-in-depth.md
-
-# HTML files in-depth
-
-to do: add content
-
-Get-Process | Select ws, ProcessName | Sort-Object ws -Desc | Select-Object -First 10 | ConvertTo-HTML -fragment | Out-File report.html -Append
-
-metaweather to html
-include icons, documented on metaweather website
-space launches to html
-
-"Heavy Cloud" -replace "Heavy Cloud", <img src="/static/img/weather/X.svg" alt="Heavy Cloud">

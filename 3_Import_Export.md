@@ -10,7 +10,7 @@ Waarom belangrijk? Dit maakt het eenvoudig om data uit systemen te halen, te bew
 
 ## Task: basic file processing
 1. Open a new PowerShell console.
-1. Run this command (notice the backslash at the end): ```Get-ChildItem \```
+1. Run this command: ```Get-ChildItem C:\```
 1. This results in a directory listing at the root of te drive.
 1. Run this command: ```Get-ChildItem```
 1. This results in a directory listing at the current folder, which might be empty.
@@ -25,14 +25,9 @@ Waarom belangrijk? Dit maakt het eenvoudig om data uit systemen te halen, te bew
 1. mkdir is a function. When we follow best practices, it's best to avoid the use of md. If you want to use mkdir or New-Item is up to you.
 1. Now create a third folder running this command: ```mkdir Folder3```
 1. Inspect with: ```Get-ChildItem -Directory```
-1. Now remove all folders:
-1. ```Remove-Item Folder1```
-1. ```Remove-Item Folder2```
-1. ```Remove-Item Folder3```
 
 
-
-# Filing all these files
+# Filing all files
 
 In this exercise we're going to work with different file types. You'll discover how easy it is to write and read from files, and discover that different filetypes have different purposes.
 
@@ -42,7 +37,7 @@ In this exercise we're going to work with different file types. You'll discover 
 1. Open PowerShell.
 1. Create a new file which contains three usernames with this command:
 1. ```'Alice', 'Bob', 'Carol' | Out-File userlist.txt```
-1. Please note the special use of punctuation marks. We're creating three users surrounded by quotationmarks. Three users are separated by two comma's.
+1. Please note the special use of punctuation marks. We're creating three users surrounded by quotationmarks. Three users are separated by comma's.
 1. Read the text file with this command: ```Get-Content userlist.txt```
 1. Notice three users are returned on three different lines.
 
@@ -75,7 +70,7 @@ Note: you might be able to use Select-Object and Sort-Object on text files using
 1. We can try to format the output like the table that Get-Process produces: ```Import-CSV procs.csv | Select-Object Handles, NPM, PM, WS, ID, ProcessName```
 1. Try to sort on ProcessName: ```Import-CSV procs.csv | Sort-Object ProcessName | Select-Object Handles, ProcessName```
 1. It works. Now try to sort on Handles: ```Import-CSV procs.csv | Sort-Object Handles | Select-Object Handles, ProcessName```
-1. The Handles column is sorted alphanumeric, and not numeric. This has no use to me. Clearly, the CSV output is not as human friendly as the first table. Maybe an XML file can help.
+1. The Handles column is sorted alphanumeric, and not numeric. Clearly, the CSV output is not as human friendly as the first table. Maybe an XML file can help.
 
 
 ## Task: Extensible Markup Language (XML) files
@@ -83,10 +78,7 @@ Note: you might be able to use Select-Object and Sort-Object on text files using
 1. Verify the file with Notepad: ```notepad procs.xml```
 1. It should be recognizable as a XML file. Close notepad.
 1. Import the process listing to verify it's read correctly: ```Import-CliXML procs.xml```
-1. Unlike the CSV file, this import presents a nice table. This is because, unlike the CSV, metadata is retained. You can verify with Get-Member.
-1. Run this command: ```Import-CliXML procs.xml | Get-Member```
-1. Scroll to the beginning of the output and verify that the first line reads: **TypeName: Deserialized.System.Diagnostics.Process**
-1. This way, PowerShell can recognize it's a process listing.
+1. Unlike the CSV file, this import presents a nice table. This is because, unlike the CSV, metadata is retained.
 1. Verify that all hidden properties are still available: ```Import-CliXML procs.xml | Select-Object Company, ProcessName, Path```
 1. Verify that properties are sortable: ```Import-CliXML procs.xml | Sort-Object Handles | Select-Object Handles, ProcessName, Path```
 
@@ -102,16 +94,4 @@ Note: you might be able to use Select-Object and Sort-Object on text files using
 1. The output is a PowerShell object. The original source was textual (HTTP) containing JSON-formatted data.
 
 
-## Task: HTML files
-1. Run this command to display a list of running processes, that show only the working set (WS), Id and process name, sorted by working set: ```Get-Process | Sort-Object WS | Select-Object WS, Id, ProcessName -First 10```
-1. To convert the process list to an HTML page, run this command: ```Get-Process | Sort-Object WS | Select-Object WS, Id, ProcessName -First 10 | ConvertTo-HTML```
-1. The HTML output is displayed in the PowerShell console window. That's not what we want.
-1. To save the HTML page to a file, run: ```Get-Process | Sort-Object WS | Select-Object WS, Id, ProcessName -First 10 | ConvertTo-HTML | Out-File Report.html```
-1. To view the HTML file, run: ```Invoke-Item Report.html```
-1. If this doesn't work, navigate to the file with Windows Explorer and double click it.
-1. To create another HTML file, run: ```Get-Process | Sort-Object WS | Select-Object WS, Id, ProcessName -First 10 | ConvertTo-HTML –PreContent 'Biggest Processes by working set' –PostContent (Get-Date) | Out-File Report.html```
-1. To view the HTML file, run: ```Invoke-Item Report.html```
-
 Results: After completing this exercise, you will have converted objects to different file formats. You can explain advantages and disadvantages when choosing different file formats.
-
-

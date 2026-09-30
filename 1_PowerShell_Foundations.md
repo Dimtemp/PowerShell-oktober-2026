@@ -43,14 +43,6 @@ Doel: Begrijpen hoe PowerShell werkt en hoe je het kunt inzetten om repetitieve 
 1. Do not save the file.
 
 
-## Task: PowerShell version
-1. Open PowerShell.
-1. Run this command: ```$host```
-1. This command displays information that represents the current host program. In this case PowerShell.exe. Notice the **Version**.
-1. Run this command: ```Get-Host```
-1. This is another way of display the previous information.
-
-
 ## Task: Get-Command
 1. Run this command: ```Get-Command```
 1. This lists all available PowerShell commands on this system.
@@ -86,7 +78,7 @@ Doel: Begrijpen hoe PowerShell werkt en hoe je het kunt inzetten om repetitieve 
 1. This displays a list of all about-articles in PowerShell. These articles can explain different techniques, without specifically adressing a particular command.
 1. Run this command: ```Get-Help about_Variables```
 1. This displays help about using variables.
-1. Note: You're not required to read this article at this moment. Variables are discussed in another chapter.
+1. Note: You're not required to read this article at this moment.
 
 # If time permits
 
@@ -121,10 +113,6 @@ Doel: Begrijpen hoe PowerShell werkt en hoe je het kunt inzetten om repetitieve 
 1. Run this command: ```edit```
 1. This will start notepad, since that's what the alias is referring to.
 1. Close notepad to return to PowerShell.
-1. Run this command to close PowerShell: ```exit``` 
-1. Now start PowerShell again.
-1. Run this command: ```edit```
-1. You'll receive an error that this term is not recognized. That's because aliases only exist in memory. In a later exercise we'll learn how to create aliases in a PowerShell profile and 'make it stick'.
 1. Keep the PowerShell console running for the next task.
 
 
