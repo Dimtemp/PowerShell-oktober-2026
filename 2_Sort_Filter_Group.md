@@ -1,4 +1,4 @@
-# 2 Sort Filter Group
+# 2 Sort, Filter, Group and Select
 
 PowerShell can retrieve and manipulate data from various sources. In this module, you will learn:
 - Sort-Object: sorting data by a specific property.
@@ -57,23 +57,6 @@ In this section we're going to filter output.
 1. ```Get-Process | Where-Object name -LIKE *s```
 
 
-## Task: match that
-PowerShell has an extremely **PowerFull** pattern matching mechanism: regular expressions. Originating not earlier than **1951**, it's a wonderfull way to describe patterns in input and output.
-
-1. Run this command to list all processes that have **sh** in their names: ```Get-Process | Where-Object ProcessName -match sh```
-1. Notice that we're not using any wildcards, like * or ?.
-1. Note: if you don't get any output, try to use another text until you get a (preferred small) result.
-1. Run this command to list all services that have **win** in their names: ```Get-Service | Where-Object Name -match win```
-1. The most basic way of using operators, like the -MATCH operator, is without any cmdlet or function. Like this:
-1. ```'Rick' -MATCH "[DMNR]ick"```
-1. This command results in true, because **Rick** matches the regular expression **[DMNR]ick**. The brackets **[]** let any character match in that position, after which the string mus continue with **ick**. Try these combinations:
-1. ```'Dick' -MATCH "[DMNR]ick"```
-1. ```'Mick' -MATCH "[DMNR]ick"```
-1. ```'Nick' -MATCH "[DMNR]ick"```
-1. ```'Sick' -MATCH "[DMNR]ick"```
-Only **Sick** results in false, because the **S** is not part of the **DMNR** collection.
-
-
 ## Task: filtering at the source
 The Where-Object has a major advantage: all PowerShell output can be filtered. It also has a huge disadvantage: all output will be filtered locally, by PowerShell. Some commands allow to filter at the source. This can prevent huge data transfers across the network, or can help speed up processing.
 1. ```Get-Process -Name *sys*```
@@ -127,6 +110,32 @@ Note: as with most PowerShell exercises, it's best not to copy-paste the command
 1. ```Get-Process | Sort WS -Desc | Select -Last 10```
 
 
+
+## Filter left, format right.
+A famous paradigm in PowerShell is: **filter left, format right**. This means you should filter output as soon as possible. At the source, when available. Filtering using Where-Object is flexbile, but also more costly in terms of processing time and/or network transfers.
+
+Formatting is done on the right. To be precise: in the last part of your PowerShell command. This will be discussed in a later chapter.
+
+
+## If time permits
+
+## Task: match that
+PowerShell has an extremely **PowerFull** pattern matching mechanism: regular expressions. Originating not earlier than **1951**, it's a wonderfull way to describe patterns in input and output.
+
+1. Run this command to list all processes that have **sh** in their names: ```Get-Process | Where-Object ProcessName -match sh```
+1. Notice that we're not using any wildcards, like * or ?.
+1. Note: if you don't get any output, try to use another text until you get a (preferred small) result.
+1. Run this command to list all services that have **win** in their names: ```Get-Service | Where-Object Name -match win```
+1. The most basic way of using operators, like the -MATCH operator, is without any cmdlet or function. Like this:
+1. ```'Rick' -MATCH "[DMNR]ick"```
+1. This command results in true, because **Rick** matches the regular expression **[DMNR]ick**. The brackets **[]** let any character match in that position, after which the string mus continue with **ick**. Try these combinations:
+1. ```'Dick' -MATCH "[DMNR]ick"```
+1. ```'Mick' -MATCH "[DMNR]ick"```
+1. ```'Nick' -MATCH "[DMNR]ick"```
+1. ```'Sick' -MATCH "[DMNR]ick"```
+Only **Sick** results in false, because the **S** is not part of the **DMNR** collection.
+
+
 ## Task: The expanding universe
 1. The ExpandProperty parameter of Select-Object can display truncated or hidden information.
 1. Display the PowerShell version information: ```$Host```
@@ -136,14 +145,6 @@ Note: as with most PowerShell exercises, it's best not to copy-paste the command
 1. Now display the version using the ExpandProperty of Select-Object: ```$Host | Select-Object -ExpandProperty Version```
 1. You'll notice extra information was hidden inside the version property.
 
-
-## Filter left, format right.
-A famous paradigm in PowerShell is: **filter left, format right**. This means you should filter output as soon as possible. At the source, when available. Filtering using Where-Object is flexbile, but also more costly in terms of processing time and/or network transfers.
-
-Formatting is done on the right. To be precise: in the last part of your PowerShell command. This will be discussed in a later chapter.
-
-
-## If time permits
 
 ## Task: Measuring
 1. Open a PowerShell console.
