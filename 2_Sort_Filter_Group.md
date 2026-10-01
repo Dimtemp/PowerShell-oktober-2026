@@ -4,6 +4,7 @@ PowerShell can retrieve and manipulate data from various sources. In this module
 - Sort-Object: sorting data by a specific property.
 - Where-Object: filtering by specific criteria.
 - Group-Object: grouping data to see patterns or totals.
+- Select-Object: selecting data based on properties, order, or other criteria
 
 # PowerShell pipeline basics
 
